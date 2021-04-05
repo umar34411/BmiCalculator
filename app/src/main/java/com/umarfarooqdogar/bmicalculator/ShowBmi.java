@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+
 public class ShowBmi extends AppCompatActivity {
 
     TextView tvBmi,tvCondition,tvAdvice;
@@ -33,8 +35,9 @@ public class ShowBmi extends AppCompatActivity {
 
     private void setTexts() {
 
-        float num=  Float.parseFloat(bmi);
-         float bmiInt=Math.round(num);
+        String formatted=new DecimalFormat("0.00").format(Double.parseDouble(bmi));
+        double bmiInt=  Double.parseDouble(formatted);
+
 
         tvBmi.setText(bmiInt+"");
         if(bmiInt<18.5)
